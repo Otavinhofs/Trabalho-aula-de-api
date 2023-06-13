@@ -1,0 +1,32 @@
+[
+    {
+        "pokemon": "Pikachu",
+        "id": 1,
+        "type": "Eletrico"
+    },
+    {
+        "pokemon": "Pidgey",
+        "id": 2,
+        "type": "Voador"
+    },
+    {
+        "pokemon": "Dugtrio",
+        "id": 3,
+        "type": "Terra"
+    },
+    {
+        "pokemon": "Meowth",
+        "id": 4,
+        "type": "Normal"
+    },
+    {
+        "pokemon": "Psyduck",
+        "id": 5,
+        "type": "Água"
+    },
+    {
+        "pokemon": "Growlithe",
+        "id": 6,
+        "type": "Fogo"
+    }
+]
