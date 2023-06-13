@@ -1,4 +1,3 @@
-const { json, response } = require('express')
 const express = require('express')
 const app = express()
 const PORT = 3000
@@ -17,7 +16,6 @@ app.post("/pokemons", (req, res) => {
     }
         data.push({pokemon, id, type})
         res.json({data})
-   
 })
 
 app.get('/pokemons',(req, res) => {
@@ -41,9 +39,7 @@ app.put('/pokemons/:id', (req, res) => {
     if (!pokeId) {
         return res.status(401).json({error: "Pokemon não encontrado pelo id"})
     }
-
     const { pokemon, type } = req.body
-    console.log(req.body)
 
     pokeId.pokemon = pokemon
     pokeId.type = type 

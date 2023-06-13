@@ -1,10 +1,10 @@
 {
-  "name": "teste",
+  "name": "pokeApi",
   "version": "1.0.0",
-  "description": "Teste",
+  "description": "Api de pokemons",
   "main": "index.js",
   "scripts": {
-    "start": "node app1.js"
+    "start": "node pokeApi.js"
   },
   "keywords": [],
   "license": "ISC",
