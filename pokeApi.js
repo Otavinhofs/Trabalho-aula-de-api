@@ -5,19 +5,6 @@ let data = require('./app/data.json')
 
 app.use(express.json())
 
-app.post("/pokemons", (req, res) => {
-    const {
-        pokemon, id, type
-    } = req.body
-
-    if (!pokemon || !id || !type) {
-        res.status(400).json({ error: "passe o body: pokemon, id, type" })
-        return
-    }
-        data.push({pokemon, id, type})
-        res.json({data})
-})
-
 app.get('/pokemons',(req, res) => {
     res.json(data)
 })
@@ -32,6 +19,20 @@ app.get('/pokemons/:id', (req, res) => {
     }
 })
 
+app.post("/pokemons", (req, res) => {
+    const {
+        pokemon, id, type
+    } = req.body
+
+    if (!pokemon || !id || !type) {
+        res.status(400).json({ error: "passe o body: pokemon, id, type" })
+        return
+    }
+        data.push({pokemon, id, type})
+        res.json({data})
+})
+
+
 app.put('/pokemons/:id', (req, res) => {
     const { id } = req.params
     const pokeId = data.find(poke => poke.id == id)
@@ -39,10 +40,15 @@ app.put('/pokemons/:id', (req, res) => {
     if (!pokeId) {
         return res.status(401).json({error: "Pokemon não encontrado pelo id"})
     }
+
     const { pokemon, type } = req.body
 
-    pokeId.pokemon = pokemon
-    pokeId.type = type 
+    if(!pokemon && !type) {
+        return res.status(401).json({error: "Passe um type e um pokemon"})
+    }
+
+    pokeId.pokemon = pokemon ? pokemon : pokeId.pokemon
+    pokeId.type = type ? type : pokeId.type
     res.json(pokeId)
 })
 
